@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your QR Code</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff6f61, #6fa3ef, #6be585, #f7d14c);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        img {
+            margin: 20px 0;
+            border: 2px solid white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100px; /* Set the desired width */
+            height: 100px; /* Set the desired height */
+        }
+
+        .token {
+            font-size: 20px;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: rgba(0, 123, 255, 0.8);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgba(0, 123, 255, 1);
+        }
+
+        a {
+            margin-top: 10px;
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your QR Code</h1>
+    <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+    <div class="token">Token: {{ token }}</div>
+    <button onclick="window.print()">Print QR Code and Token</button>
+    <br>
+    <a href="/">Generate Another QR Code</a>
+</body>
+</html>
